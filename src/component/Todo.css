@@ -1,0 +1,30 @@
+.Todo{
+    width: 500px;
+    margin: auto;
+  
+  }
+  .List-add{
+    margin-left: 10px;
+    background-color: rgb(255, 255, 255);
+    margin-right: 10px;
+  }
+  .List-d{
+    margin-left: 10px;
+    background-color: rgb(255, 255, 255);
+  }
+  .List-item{
+    background-color: green;
+    list-style: none;
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-align: left;
+  }
+  .item{
+    margin-bottom: 10px;
+  }
+  .item-value{
+    padding-left: 10px;
+  }
+  .item-deadline{
+    padding-left: 10px;
+  }
