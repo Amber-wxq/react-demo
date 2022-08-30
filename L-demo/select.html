@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #highlight {
+        background-color: #89c4f1;
+        position: absolute;
+        z-index: -1;
+      }
+      .high {
+        background-color: #89c4f1;
+        position: absolute;
+        z-index: -1;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="editor">
+      <div class="text_h">
+        <p>没错你是个明白人,我明白你明白的意思,我也是明白人,明白人就应该明白我明白你明白的意思,只要
+        大家都明白明白人应明白我明白你明白的意思这样网络环境就是充满明白人明白其他明白人所明白的事</p>
+      </div>
+      <div class="text_h">
+        <p>
+          为了防止这个世界被破坏，为了保护世界的和平，贯彻爱与真实的邪恶，可爱又迷人的反派角色，我们是穿梭在银河中的火箭队，白洞，白色的明天正在等着我们。为了防止这个世界被破坏，为了保护世界的和平，贯彻爱与真实的邪恶，可爱又迷人的反派角色，我们是穿梭在银河中的火箭队，白洞，白色的明天正在等着我们。为了防止这个世界被破坏，为了保护世界的和平，贯彻爱与真实的邪恶，可爱又迷人的反派角色，我们是穿梭在银河中的火箭队，白洞，白色的明天正在等着我们。为了防止这个世界被破坏，为了保护世界的和平，贯彻爱与真实的邪恶，可爱又迷人的反派角色，我们是穿梭在银河中的火箭队，白洞，白色的明天正在等着我们。
+        </p>
+      </div>
+      <div class="text_h">
+        <p>
+          为了防止这个世界被破坏，为了保护世界的和平，贯彻爱与真实的邪恶，可爱又迷人的反派角色，我们是穿梭在银河中的火箭队，白洞，白色的明天正在等着我们。为了防止这个世界被破坏，为了保护世界的和平，贯彻爱与真实的邪恶，可爱又迷人的反派角色，我们是穿梭在银河中的火箭队，白洞，白色的明天正在等着我们。为了防止这个世界被破坏，为了保护世界的和平，贯彻爱与真实的邪恶，可爱又迷人的反派角色，我们是穿梭在银河中的火箭队，白洞，白色的明天正在等着我们。为了防止这个世界被破坏，为了保护世界的和平，贯彻爱与真实的邪恶，可爱又迷人的反派角色，我们是穿梭在银河中的火箭队，白洞，白色的明天正在等着我们。
+        </p>
+      </div>
+    </div>
+    <script>
+      const editor = document.getElementById("editor");
+
+      const textNodes = document.querySelectorAll("p");
+      console.log(textNodes);
+      const start = {
+        node: textNodes[0],
+        offset: 12,
+      };
+      const end = {
+        node: textNodes[2],
+        offset: 190,
+      };
+      const range = document.createRange();
+      //必须加firstChild，选中节点下还有个text节点
+      range.setStart(start.node.firstChild, start.offset);
+      range.setEnd(end.node.firstChild, end.offset);
+      console.log(range);
+      const clientRects = range.getClientRects();
+      console.log("1", clientRects);
+      for (let i = 0; i < clientRects.length; i++) {
+        const clientRect = clientRects[i];
+        createSelection(
+          clientRect.x,
+          clientRect.y,
+          clientRect.width,
+          clientRect.height
+        );
+      }
+      function createSelection(x, y, width, height) {
+        const thight = document.createElement("div");
+        thight.className = "high";
+
+        thight.style.left = `${x}px`;
+        thight.style.top = `${y}px`;
+        thight.style.width = `${width}px`;
+        thight.style.height = `${height}px`;
+        editor.appendChild(thight);
+      }
+      // const highlight = document.getElementById("highlight");
+      // const thight = document.createElement("div");
+      // thight.className = "high";
+
+      // thight.style.left = `${clientRect.x}px`;
+      // thight.style.top = `${clientRect.y}px`;
+      // thight.style.width = `${clientRect.width}px`;
+      // thight.style.height = `${clientRect.height}px`;
+      // editor.appendChild(thight);
+    </script>
+  </body>
+</html>

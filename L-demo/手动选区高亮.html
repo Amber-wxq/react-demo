@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #highlight {
+        background: yellow;
+        position: absolute;
+        z-index: -1;
+      }
+
+      p {
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="highlight"></div>
+    <p>
+      This example positions a "highlight" rectangle behind the contents of a
+      range. The range's content <span>starts here</span> and continu
+      cvmlcvmlkmblkbmfbmlfdlkbes on until it <b>ends here</b>. The bounding
+      client rectangle contains everything selected in the range.
+    </p>
+  </body>
+  <script>
+    
+    const range = document.createRange();
+    range.setStart(document.getElementsByTagName("span")[0].firstChild, 0);
+    range.setEnd(document.getElementsByTagName("span")[0].firstChild, 10);
+
+    const clientRect = range.getClientRects()[0];
+    console.log("1", clientRect);
+    const highlight = document.getElementById("highlight");
+    highlight.style.left = `${clientRect.x}px`;
+    highlight.style.top = `${clientRect.y}px`;
+    highlight.style.width = `${clientRect.width}px`;
+    highlight.style.height = `${clientRect.height}px`;
+
+    console.log(document.getElementsByTagName("span").item(0));
+  </script>
+</html>
